@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 It was made thanks to 
-https://fontawesome.com/icons/chevron-right?style=solid
+https://fontawesome.com/icons/chevron-right?style=solid and
 Hunter Becton, medium.com
 
 ## Available Scripts
