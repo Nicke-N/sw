@@ -9,7 +9,9 @@ export default function ButtonSearch() {
 
 
     function clickHandler (e) {
-        const query = `?search=${e.target.value}`
+        
+        let query = `?search=${e.target.value}`
+
         characterKit.fetchSearch(query)
         .then(res => res.json())
         .then(data => {
