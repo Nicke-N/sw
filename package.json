@@ -1,7 +1,7 @@
 {
   "name": "sw",
   "version": "0.1.0",
-  "homepage": "https://Tabben.github.io/sw",
+  "homepage": "https://tabben.github.io/sw/",
   "private": true,
   "dependencies": {
     "@kunukn/react-collapse": "^2.2.9",
