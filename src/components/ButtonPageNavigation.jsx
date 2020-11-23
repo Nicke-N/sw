@@ -17,13 +17,13 @@ export default function Button(props) {
             if(data.next) {
                 newURL = data.next.replace(/http/g, "https");            
                 setNextURL(newURL)
-                console.log(newURL)
+                
             }
 
             if(data.previous) {
                 newURL = data.previous.replace(/http/g, "https");
                 setPreviousURL(newURL)
-                console.log(newURL)
+               
             }
         })
 
