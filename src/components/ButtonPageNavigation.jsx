@@ -13,8 +13,17 @@ export default function Button(props) {
         .then(res => res.json())
         .then(data => {
             setCharacterList(data.results)
-            setNextURL(data.next)
-            setPreviousURL(data.previous)
+            var newURL
+            if(data.next) {
+                newURL = data.next.replace(/http/g, "https");            
+                setNextURL(newURL)
+            }
+
+            if(data.previous) {
+                newURL = data.previous.replace(/http/g, "https");
+                setPreviousURL(newURL)
+                console.log(newURL)
+            }
         })
 
 
