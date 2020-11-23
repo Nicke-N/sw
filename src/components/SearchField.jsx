@@ -5,15 +5,12 @@ import SearchBar from './SearchBar'
 
 export default function SearchField() {
 
-
-
     return (
         <div>
            
                 <SearchBar />
                 <ButtonSearch />
           
-
         </div>
     )
 }

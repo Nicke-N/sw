@@ -15,9 +15,12 @@ export default function ButtonSearch() {
         characterKit.fetchSearch(query)
         .then(res => res.json())
         .then(data => {
+            var newURL = data.next.replace(/http/g, "https");
+            
             setCharacterList(data.results)
-            setNextURL(data.next)
-            setPreviousURL(data.previous)
+            setNextURL(newURL)
+            newURL = data.previous.replace(/http/g, "https");
+            setPreviousURL(newURL)
         })
 
 
