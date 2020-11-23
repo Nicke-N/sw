@@ -8,16 +8,16 @@ import SearchField from '../components/SearchField'
 
 export default function CharacterListPage() {
 
-    const { 
-        characterList, 
-        setCharacterList, 
-        nextURL, 
-        setNextURL, 
-        previousURL, 
-        setPreviousURL 
+    const {
+        characterList,
+        setCharacterList,
+        nextURL,
+        setNextURL,
+        previousURL,
+        setPreviousURL
     } = useContext(CharacterListContext)
 
-    const characterKit = new CharacterKit() 
+    const characterKit = new CharacterKit()
 
     function fetchList() {
 
@@ -26,12 +26,22 @@ export default function CharacterListPage() {
             .then(res => res.json())
             .then(data => {
                 setCharacterList(data.results)
-                setNextURL(data.next)
-                setPreviousURL(data.previous)
+                var newURL
+                if (data.next) {
+                    newURL = data.next.replace(/http/g, "https");
+                    setNextURL(newURL)
+                    console.log(newURL)
+                }
+
+                if (data.previous) {
+                    newURL = data.previous.replace(/http/g, "https");
+                    setPreviousURL(newURL)
+                    console.log(newURL)
+                }
 
             })
-            //.catch(err => console.log(err))
-        
+        //.catch(err => console.log(err))
+
     }
 
     useEffect(() => {
@@ -41,26 +51,26 @@ export default function CharacterListPage() {
     return (
         <div>
             <SearchField />
-            <PageNext nextURL={nextURL}/>
-            <PagePrevious previousURL={previousURL}/>
-            
+            <PageNext nextURL={nextURL} />
+            <PagePrevious previousURL={previousURL} />
+
 
             {characterList && characterList.map((character, index) => {
                 const info = {
                     gender: character.gender,
                     height: character.height,
                     hairColor: character.hair_color,
-                    eyeColor: character.eye_color    
+                    eyeColor: character.eye_color
                 }
                 return <Collapse key={index} title={character.name} content={info} />
-               // <CharacterListItem key={index} index={index+1} character={character} />
+                // <CharacterListItem key={index} index={index+1} character={character} />
             })}
 
-            
-        </div>   
-        
-            
-    
+
+        </div>
+
+
+
 
     )
 }

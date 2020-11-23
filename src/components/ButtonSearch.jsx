@@ -20,6 +20,7 @@ export default function ButtonSearch() {
             if(data.next) {
                 newURL = data.next.replace(/http/g, "https");            
                 setNextURL(newURL)
+                console.log(newURL)
             }
 
             if(data.previous) {
